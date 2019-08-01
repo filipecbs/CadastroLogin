@@ -62,7 +62,7 @@ class ReservaController extends Controller
         
             $reserva = new Reserva();
             
-            $reserva->nome = $request->nome;
+            $reserva->name = $request->name;
             $reserva->data = $request->data;
 
             $reserva->save();
