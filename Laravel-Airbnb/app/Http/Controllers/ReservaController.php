@@ -120,7 +120,30 @@ class ReservaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+
+        if ( $user ) {
+        
+            $reserva = Reserva::find($id);
+            
+            $reserva->name = $request->name;
+            $reserva->data = $request->data;
+
+            $reserva->save();
+
+            return response()->json( [
+                "message" => "Reserva editada com sucesso!",
+                "data" => $reserva
+            ], 200 );
+
+        } else {
+
+            return response()->json( [
+                "message" => "Não autorizado!",
+                "data" => null
+            ], 401 );
+
+        }
     }
 
     /**
@@ -143,6 +166,25 @@ class ReservaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Auth::user();
+
+        if ( $user ) {
+
+            $reserva = Reserva::find($id);
+            $reserva->destroy();
+
+            return response()->json( [
+                "message" => "Reserva deletada com sucesso!",
+                "data" => $reserva
+            ], 200 );
+
+        } else {
+
+            return response()->json( [
+                "message" => "Não autorizado!",
+                "data" => null
+            ], 401 );
+
+        }
     }
 }

@@ -21,6 +21,12 @@ Route::group( ['middleware' => 'auth:api'], function() {
 	Route::post('get-details', 'API\PassportController@getDetails');
 });
 
+Route::get('reserva', 'ReservaController@index');
+Route::get('reserva/{$id}', 'ReservaController@show');
+Route::post('reserva', 'ReservaController@store');
+Route::put('reserva', 'ReservaController@update');
+Route::delete('reserva/{$id}', 'ReservaController@destroy');
+
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
