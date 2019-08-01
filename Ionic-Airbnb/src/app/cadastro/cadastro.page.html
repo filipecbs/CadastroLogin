@@ -1,31 +1,29 @@
 <ion-app>
     <ion-header>
         <ion-toolbar>
-          <ion-title>Cadastro</ion-title>
+            <ion-title>Cadastro</ion-title>
         </ion-toolbar>
-      </ion-header>
-      
-      <ion-content>
-          <ion-item class="nome">
-              <ion-label position="floating">Nome</ion-label>
-              <ion-input type="text"></ion-input>
+    </ion-header>
+
+    <ion-content>
+        <form [formGroup]="registerForm" (ngSubmit)="registrarUsuario(registerForm)">
+            <ion-item class="nome">
+                <ion-label position="floating">Nome</ion-label>
+                <ion-input type="text" formControlName="name"></ion-input>
             </ion-item>
-            <ion-item class="sobrenome">
-                <ion-label position="floating">Sobrenome</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-              <ion-item class="email">
-                  <ion-label position="floating">Email</ion-label>
-                  <ion-input type="email"></ion-input>
-                </ion-item>
-                <ion-item class="senha"> 
-                    <ion-label position="floating">Senha</ion-label>
-                    <ion-input type="password"></ion-input>
-                </ion-item>
-                <ion-item class="c_senha"> 
-                    <ion-label position="floating">Confirme sua Senha</ion-label>
-                    <ion-input type="password"></ion-input>
-                </ion-item>
-            <ion-button onclick="register()">Cadastre-se</ion-button>
-      </ion-content>
+            <ion-item class="email">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item class="senha">
+                <ion-label position="floating">Senha</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item class="c_senha">
+                <ion-label position="floating">Confirme sua Senha</ion-label>
+                <ion-input type="password" formControlName="c_password"></ion-input>
+            </ion-item>
+            <ion-button type="submit">Cadastre-se</ion-button>
+        </form>
+    </ion-content>
 </ion-app>

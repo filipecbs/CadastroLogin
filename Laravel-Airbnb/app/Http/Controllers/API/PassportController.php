@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 use Auth;
 use App\User;
@@ -12,14 +13,14 @@ use DB;
 class PassportController extends Controller
 {
     public function login( Request $request ) {
-    	
+
     	$fields = [
     		'email' => $request->email,
     		'password' => $request->password,
     	];
 
     	$access = Auth::attempt( $fields );
-    	
+
     	if ( $access ) {
 
     		$user = Auth::user();
@@ -67,6 +68,7 @@ class PassportController extends Controller
     	$user->name = $request->name;
     	$user->email = $request->email;
     	$user->password = bcrypt( $request->password );
+        $user->save();
 
     	return response()->json([
 			'message' => 'Usuário '.$user->name.' criado com sucesso!',
@@ -94,8 +96,8 @@ class PassportController extends Controller
     	$accessToken->revoke();
 
     	return response()->json([
-    		'message' => .$user->name." deslogado com sucesso!",
+    		'message' => $user->name." deslogado com sucesso!",
     		'data' => null
-    	], 201); 
+    	], 201);
     }
 }

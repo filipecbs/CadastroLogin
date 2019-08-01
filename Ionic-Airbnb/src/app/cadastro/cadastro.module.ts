@@ -7,20 +7,23 @@ import { IonicModule } from '@ionic/angular';
 
 import { CadastroPage } from './cadastro.page';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 const routes: Routes = [
-  {
-    path: '',
-    component: CadastroPage
-  }
+    {
+        path: '',
+        component: CadastroPage
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [CadastroPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        ReactiveFormsModule
+    ],
+    declarations: [CadastroPage]
 })
-export class CadastroPageModule {}
+export class CadastroPageModule { }

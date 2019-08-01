@@ -1,14 +1,21 @@
 <ion-content>
-    <ion-item class="email">
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email"></ion-input>
-      </ion-item>
 
-      <ion-item class="senha"> 
-          <ion-label position="floating">Senha</ion-label>
-          <ion-input type="password"></ion-input>
-      </ion-item>
+    <form [formGroup]="loginForm" (ngSubmit)="logarUsuario(loginForm)">
 
-  <ion-button onclick="login()">Login</ion-button>
-  <ion-button routerLinkActive="active"><a routerLink = "/cadastro">Cadastre-se</a></ion-button>
+        <ion-item class="email">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item class="senha">
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <ion-button type="submit">Login</ion-button>
+
+    </form>
+
+    <ion-button routerLinkActive="active"><a routerLink="/cadastro">Cadastre-se</a></ion-button>
+
 </ion-content>

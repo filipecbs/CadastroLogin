@@ -4,20 +4,23 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { HomePage } from './home.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ])
-  ],
-  declarations: [HomePage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: HomePage
+            }
+        ]),
+        ReactiveFormsModule,
+    ],
+    declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule { }
